@@ -1,0 +1,77 @@
+def ingresar_calificaciones():
+    nombres = []
+    notas = []
+    continuar = "s"
+    
+    while continuar == "s":
+        materia = input("Nombre de la materia: ")
+        
+        nota = float(input("Calificación (0-10): "))
+        while nota < 0 or nota > 10:
+            print("Dato inválido.")
+            nota = float(input("Calificación (0-10): "))
+            
+        nombres.append(materia)
+        notas.append(nota)
+        
+        continuar = input("¿Agregar otra? (s/n): ")
+    
+    return nombres, notas
+
+def calcular_promedio(lista_notas):
+    if len(lista_notas) == 0:
+        return 0
+    suma = sum(lista_notas)
+    total = len(lista_notas)
+    return suma / total
+
+def determinar_estado(lista_notas, umbral):
+    aprobados = []
+    reprobados = []
+    
+    for i in range(len(lista_notas)):
+        if lista_notas[i] >= umbral:
+            aprobados.append(i)
+        else:
+            reprobados.append(i)
+            
+    return aprobados, reprobados
+
+def encontrar_extremos(lista_notas):
+    nota_alta = max(lista_notas)
+    nota_baja = min(lista_notas)
+    
+    indice_alta = lista_notas.index(nota_alta)
+    indice_baja = lista_notas.index(nota_baja)
+    
+    return indice_alta, indice_baja
+
+def main():
+    materias, calificaciones = ingresar_calificaciones()
+    
+    if len(materias) > 0:
+        promedio = calcular_promedio(calificaciones)
+        si_pasan, no_pasan = determinar_estado(calificaciones, 5.0)
+        pos_mejor, pos_peor = encontrar_extremos(calificaciones)
+        
+        print("--- RESULTADOS ---")
+        for i in range(len(materias)):
+            print(materias[i], ":", calificaciones[i])
+            
+        print("Promedio final:", promedio)
+        
+        print("Materias aprobadas:")
+        for pos in si_pasan:
+            print("-", materias[pos])
+            
+        print("Materias reprobadas:")
+        for pos in no_pasan:
+            print("-", materias[pos])
+            
+        print("Mejor materia:", materias[pos_mejor])
+        print("Materia más baja:", materias[pos_peor])
+    
+    print("Programa finalizado.")
+
+if __name__ == "__main__":
+    main()  
