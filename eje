@@ -1,0 +1,90 @@
+
+while True:
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("|    CALCULADORA     |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 1. Sumar            |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 2. Restar           |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 3. Multiplicar      |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 4. Dividir          |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 5. Factorial        |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 6. Potencia         |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    print("| 7. Salir            |")
+    print("$$$$$$$$$$$$$$$$$$$$$$")
+    
+    opcion = input("Seleccione una opcion (1-7): ").strip()
+    
+    if opcion == "1":
+        print("\nSumar")
+        num1 = float(input("Ingrese el primer numero: "))
+        num2 = float(input("Ingrese el segundo numero: "))
+        resultado = num1 + num2
+        display_result = int(resultado) if resultado == int(resultado) else resultado
+        print(f"Resultado: {num1} + {num2} = {display_result}\n")
+    
+    elif opcion == "2":
+        print("\nRestar")
+        valor1 = float(input("Ingrese el primer numero: "))
+        valor2 = float(input("Ingrese el segundo numero: "))
+        valor3 = valor1 - valor2
+        display_result = int(valor3) if valor3 == int(valor3) else valor3
+        print(f"Resultado: {valor1} - {valor2} = {display_result}\n")
+    
+    elif opcion == "3":
+        print("\nMultiplicar")
+        valor1 = float(input("Ingrese el primer numero: "))
+        valor2 = float(input("Ingrese el segundo numero: "))
+        resultado = valor1 * valor2
+        display_result = int(resultado) if resultado == int(resultado) else resultado
+        print(f"Resultado: {valor1} * {valor2} = {display_result}\n")
+    
+    elif opcion == "4":
+        print("\nDividir")
+        dividendo = float(input("Ingrese el dividendo: "))
+        divisor = float(input("Ingrese el divisor: "))
+        if divisor == 0:
+            print("Error: No se puede dividir por cero.\n")
+        else:
+            resultado = dividendo / divisor
+            print(f"Resultado: {dividendo} / {divisor} = {resultado}\n")
+    
+    elif opcion == "5":
+        print("\nFactorial")
+        numero = int(input("Ingrese un número entero positivo: "))
+        if numero < 0:
+            print("Error: El número debe ser positivo.\n")
+        else:
+            resultado = 1
+            for i in range(1, numero + 1):
+                resultado = resultado * i
+            print(f"Resultado: {numero}! = {resultado}\n")
+    
+    elif opcion == "6":
+        print("\nPotencia")
+        base = float(input("Ingrese la base: "))
+        exponente = int(input("Ingrese el exponente: "))
+        resultado = 1
+        if exponente > 0:
+            for i in range(exponente):
+                resultado = resultado * base
+        elif exponente < 0:
+            for i in range(-exponente):
+                resultado = resultado / base
+        print(f"Resultado: {base}^{exponente} = {resultado}\n")
+    
+    elif opcion == "7":
+        print("\nGracias por usar la calculadora. Hasta luego!\n")
+        break
+    
+    else:
+        print("\nOpción no válida. Ingrese un número entre 1 y 7.\n")
+
+
+
+
